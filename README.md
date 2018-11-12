@@ -1,5 +1,7 @@
 # voice-controlled-switch
+
 <img src="images/pizerospeach1.jpg" alt="Pi Zero Switch" width="500">
+
 ## Make your own voice controlled light switch - that really works!
 
 Once you've had a Google Home or Alexa for a while you realise voice control is the future, but don't you just hate the way these current products have to send your voice off over the Internet to their big brother servers just to switch your local lights on, not to mention the annoying way they always give the unnecessary verbal confirmation - "Alright, switching off the bedroom light" - which you can see perfectly well already by the light having just gone off.
@@ -25,7 +27,10 @@ You'll think it sounds odd saying Marvin and Sheila to control your lights, but 
 - Pi Zero case to make it look nice
 
 ## Steps:
-![Alt text](images/fritzing.png?raw=true "Pi Zero")
-![Alt text](images/pizerospeach2.jpg?raw=true "Pi Zero")
-![Alt text](images/pizerospeach3.jpg?raw=true "Pi Zero")
+
+<img src="images/fritzing.png" alt="Fritzing Diagram" width="500">
+
+<img src="images/pizerospeach2.jpg" alt="Pi Zero inside 1" width="500">
+
+<img src="images/pizerospeach3.jpg" alt="Pi Zero inside 2" width="500">
 
