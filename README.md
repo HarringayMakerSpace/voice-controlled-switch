@@ -31,7 +31,7 @@ You'll think it sounds odd saying Marvin and Sheila to control your lights, but 
 
 Using the non-Wifi version of the Pi Zero its easiest to set it up for access from a PC over a USB cable. Install a fresh copy of [Raspbian Stretch Lite](https://www.raspberrypi.org/downloads/raspbian/) onto the SD Card and configure it for USB access:
 
-**1.** Flash Raspbian Jessie full or Raspbian Jessie Lite [onto the SD card](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).    
+**1.** Flash Raspbian Stretch Lite [onto the SD card](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).    
 **2.** Once Raspbian is flashed, open up the boot partition (in Windows Explorer, Finder etc) and add to the bottom of the ```config.txt``` file ```dtoverlay=dwc2``` on a new line, then save the file.    
 **3.** Now create a new file simply called ```ssh``` in the SD card as well. By default SSH is disabled so this is required to enable it. **Remember** - Make sure your file doesn't have an extension (like .txt etc)!    
 **4.** Finally, open up the ```cmdline.txt```. Be careful with this file, it is very picky with its formatting! Each parameter is seperated by a single space (it does not use newlines). Insert ```modules-load=dwc2,g_ether``` after ```rootwait```. To compare, an edited version of the ```cmdline.txt``` file at the time of writing, can be found [here](http://pastebin.com/WygSaptQ).    
