@@ -12,9 +12,9 @@ To control your lights in an ideal world you would say something obvious like "l
 
 One is "lights on" and "lights off" are very similar, both being mainly "lights o" and only differing by the end "n" and "ff", so using these gives annoying mis-detection errors.
 
-Better could be something like "lamp on" and "lights off" but the problem with that is that there are no recordings of people saying "lamp" and we need lots of recordings of actual speech to train the machine learning neural network with. Without thousands of samples to train the model it is unreliable and doesn't work very well with different peoples voices. So, to have something that actually works well I've used the keywords "Marvin" and "Sheila" to switch the lights on and off. There are sample recordings of thousands of people saying these (see [Google's Speech Commands Dataset](https://ai.googleblog.com/2017/08/launching-speech-commands-dataset.html)) so the trained model is accurate and the phrases are quite different which minimises mis-triggering.
+Better could be something like "lamp on" and "lights off" but the problem with that is that there are no recordings of people saying "lamp" and we need lots of recordings of actual speech to train the machine learning neural network with. Without thousands of samples to train the model it is unreliable and doesn't work very well with different peoples voices. So, to have something that actually works well this uses the keywords "Marvin" and "Sheila" to switch the lights on and off. There are sample recordings of thousands of people saying these (see [Google's Speech Commands Dataset](https://ai.googleblog.com/2017/08/launching-speech-commands-dataset.html)) so the trained model is accurate and the phrases are quite different which minimises mis-triggering.
 
-You'll think it sounds odd saying Marvin and Sheila to control your lights, but it doesn't have all the "hey google" cruft or violate your privacy while bringing the benefits of voice control so you quickly get used to it.
+You'll probably think its odd saying Marvin and Sheila to control your lights, but it doesn't have all the "hey google" cruft or privacy violoations, so you quickly get used to and even prefer it.
 
 ## What you need:
 
