@@ -28,6 +28,10 @@ You'll think it sounds odd saying Marvin and Sheila to control your lights, but 
 
 ## Steps:
 
+### Setup the Raspberry Pi Zero
+
+Using the non-Wifi version of the Pi Zero its easiest to set it up for access from a PC over USB. Install a fresh copy of [Raspbian Stretch Lite](https://www.raspberrypi.org/downloads/raspbian/) onto an SD Card. Configure it for USB access following [this guide](https://gist.github.com/gbaman/975e2db164b3ca2b51ae11e45e8fd40a). Connect the Pi to your PC with a USB cable, wait 90 seconds for it to boot (you should see the green LED on the PI flashing a bit as it boots) and then you should be able to logon to it with ```ssh pi@raspberrypi.local``` with password ```raspberry```. 
+
 <img src="images/fritzing.png" alt="Fritzing Diagram" width="500">
 
 <img src="images/pizerospeach2.jpg" alt="Pi Zero inside 1" width="500">
