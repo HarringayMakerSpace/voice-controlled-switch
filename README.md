@@ -42,7 +42,7 @@ All that done, connect the Pi to your PC with a USB cable, wait 90 seconds for i
 
 Along with logging on with SSH you can also copy files from your PC to the Pi Zero with: ```scp /path/to/file pi@raspberrypi.local:~``` and copy files from the Pi to your PC with: ```scp  pi@raspberrypi.local:/path/to/file .``` 
 
-### Connect up the mic and 433MHz transmitter modules
+### Connect up the I2S mic and 433MHz transmitter modules
 
 <img src="images/fritzing.png" alt="Fritzing Diagram" width="500">
 
