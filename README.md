@@ -32,7 +32,7 @@ Using the non-Wifi version of the Pi Zero its easiest to set it up for access fr
 
 All that done, connect the Pi to your PC with a USB cable, wait 90 seconds for it to boot up (you should see the green LED on the Pi flashing a bit as it boots) and then you should be able to logon to the Pi from your PC with ```ssh pi@raspberrypi.local``` and the password ```raspberry```. 
 
-You can also copy files from you PC to the Pi Zero with: ```scp /path/to/file pi@raspberrypi.local:~``` and copy files from the Pi to your PC with: ```scp  pi@raspberrypi.local:/path/to/file .``` 
+Along with logging on with SSH you can also copy files from your PC to the Pi Zero with: ```scp /path/to/file pi@raspberrypi.local:~``` and copy files from the Pi to your PC with: ```scp  pi@raspberrypi.local:/path/to/file .``` 
 
 ### Configure the SPH0645 I2S Microphone
 
