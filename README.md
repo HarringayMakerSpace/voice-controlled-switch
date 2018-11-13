@@ -57,5 +57,9 @@ You should now be able to record audio with the mic. Enter the command ```arecor
 
 <img src="images/fritzing.png" alt="Fritzing Diagram" width="500">
 
+### Putting it all together
+
+The official Rasperry Pi Zero case includes a camera cover which has a hole in the front perfect for the microphone and it also has inside some raised tags which are pefectly spaced to tightly hold the microphone in place behind the hole. Inside the case ther is also just enough space for the 433 MHz transmitter module. I've put a square of plastic insulator (cut from the bag the I2S mic came in) on the back of the transmitter to avoid any shorts if it touches the Pi circuit board, and held it on just with a blob of blutack.
+
 <img src="images/pizerospeach2.jpg" alt="Pi Zero inside 1" width="300"> <img src="images/pizerospeach3.jpg" alt="Pi Zero inside 2" width="300">
 
