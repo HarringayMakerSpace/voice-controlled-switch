@@ -29,7 +29,7 @@ You'll think it sounds odd saying Marvin and Sheila to control your lights, but 
 
 ### Setup the Raspberry Pi Zero
 
-Using the non-Wifi version of the Pi Zero its easiest to set it up for access from a PC over a USB cable. Install a fresh copy of [Raspbian Stretch Lite](https://www.raspberrypi.org/downloads/raspbian/) onto the SD Card and configure it for USB access:
+Using the non-Wifi version of the Pi Zero its easiest to set it up for access from a PC over a USB cable. 
 
 **1.** Flash Raspbian Stretch Lite [onto the SD card](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).    
 **2.** Once Raspbian is flashed, open up the boot partition (in Windows Explorer, Finder etc) and add to the bottom of the ```config.txt``` file ```dtoverlay=dwc2``` on a new line, then save the file.    
