@@ -57,7 +57,5 @@ You should now be able to record audio with the mic. Enter the command ```arecor
 
 <img src="images/fritzing.png" alt="Fritzing Diagram" width="500">
 
-<img src="images/pizerospeach2.jpg" alt="Pi Zero inside 1" width="500">
-
-<img src="images/pizerospeach3.jpg" alt="Pi Zero inside 2" width="500">
+<img src="images/pizerospeach2.jpg" alt="Pi Zero inside 1" width="300"> <img src="images/pizerospeach3.jpg" alt="Pi Zero inside 2" width="300">
 
