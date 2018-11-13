@@ -19,6 +19,7 @@ You'll think it sounds odd saying Marvin and Sheila to control your lights, but 
 ## What you need:
 
 - Raspberry Pi Zero (non-Wifi version is fine)
+- micro SD Card (8GB is fine) 
 - I2S Microphone, eg SPH0645
 - 433MHz transmitter module
 - 433MHz remote control mains socket
@@ -28,7 +29,14 @@ You'll think it sounds odd saying Marvin and Sheila to control your lights, but 
 
 ### Setup the Raspberry Pi Zero
 
-Using the non-Wifi version of the Pi Zero its easiest to set it up for access from a PC over a USB cable. Install a fresh copy of [Raspbian Stretch Lite](https://www.raspberrypi.org/downloads/raspbian/) onto an SD Card and configure it for USB access following [this guide](https://gist.github.com/gbaman/975e2db164b3ca2b51ae11e45e8fd40a). 
+Using the non-Wifi version of the Pi Zero its easiest to set it up for access from a PC over a USB cable. Install a fresh copy of [Raspbian Stretch Lite](https://www.raspberrypi.org/downloads/raspbian/) onto the SD Card and configure it for USB access:
+
+**1.** Flash Raspbian Jessie full or Raspbian Jessie Lite [onto the SD card](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).    
+**2.** Once Raspbian is flashed, open up the boot partition (in Windows Explorer, Finder etc) and add to the bottom of the ```config.txt``` file ```dtoverlay=dwc2``` on a new line, then save the file.    
+**3.** If using a recent release of Jessie (Dec 2016 onwards), then create a new file simply called ```ssh``` in the SD card as well. By default SSH is now disabled so this is required to enable it. **Remember** - Make sure your file doesn't have an extension (like .txt etc)!    
+**4.** Finally, open up the ```cmdline.txt```. Be careful with this file, it is very picky with its formatting! Each parameter is seperated by a single space (it does not use newlines). Insert ```modules-load=dwc2,g_ether``` after ```rootwait```. To compare, an edited version of the ```cmdline.txt``` file at the time of writing, can be found [here](http://pastebin.com/WygSaptQ).    
+
+(See [this guide](https://gist.github.com/gbaman/975e2db164b3ca2b51ae11e45e8fd40a) for full details.) 
 
 All that done, connect the Pi to your PC with a USB cable, wait 90 seconds for it to boot up (you should see the green LED on the Pi flashing a bit as it boots) and then you should be able to logon to the Pi from your PC with ```ssh pi@raspberrypi.local``` and the password ```raspberry```. 
 
