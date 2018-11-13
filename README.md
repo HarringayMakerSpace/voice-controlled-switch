@@ -74,13 +74,23 @@ The code is a Python script which uses the [Nyumaya Audio Recognition](https://g
 There are a few options for doing speech recognition on a Pi Zero. One is [Snowboy](https://snowboy.kitt.ai/) which has some nice features but it doesn't seem as accurate as Nyumaya. Another is [Porcupine](https://github.com/Picovoice/Porcupine) which is able to create models from English text so doesn't need all the audio samples, however its aimed at comercial customers and without a license you can't create custom models for the Pi and he wouldn't give me a personal license even when offering to pay. Finally, there is the completely DIY approach which is where I started - Google's open source machine learning project TensorFlow has a [speech recognition example](https://www.tensorflow.org/tutorials/sequences/audio_recognition) which is based on the research paper [Convolutional Neural Networks for Small-footprint Keyword Spotting](https://www.isca-speech.org/archive/interspeech_2015/papers/i15_1478.pdf). That is improved on by a later paper at the end of 2017, [Honk: A PyTorch Reimplementation of Convolutional
 Neural Networks for Keyword Spoting](https://arxiv.org/pdf/1710.06554.pdf) with an associated open source project, [Honk](https://github.com/castorini/honk). I found the code in Honk hard to make sense of and then I came across Nyumaya which I understand is based on the Honk model with some further improvements and its much easier to use. Nyumaya unfortunately hasn't open sourced the model generation code yet, but the guy behind Nyumaya is incredibly responsive and helpful so thats what this is using presently.     
 
-Anyway, clone or download a zip of this repo to you PC and then copy it to the Pi Zero with ```scp -r path/to/voice-controlled-switch/ pi@raspberrypi.local:~/pi-voice-switch/```
-
-So that this runs when the Pi Zero is booted edit the boot file ```xyz``` to include the line ```abc```. It should look like this:
+Anyway, clone or download a zip of this repo to you PC, for example:
 ```
+git clone https://github.com/HarringayMakerSpace/voice-controlled-switch
 ```
+and then copy it to the Pi Zero with:
+```
+scp -r voice-controlled-switch pi@raspberrypi.local:~
+```
+In order for this to run when the Pi boots up on the Pi add the line ```python3 /home/pi/voice-controlled-switch/light-switch.py &``` to the ```rc.local``` file just before the last line: ```sudo nano /etc/rc.local```, so that it looks like:
+```
+fi
+python3 /home/pi/voice-controlled-switch/light-switch.py &
+exit 0
+```
+(Use ctrl-x y to save the file) 
 
-There are two settings you can adjust to suit your environment. One is the volume level of the microphone and the other is the sensitivity of the speach recognition model. 
+There are two settings in ```light-switch.py``` you can adjust to suit your environment. One is the volume level of the microphone and the other is the sensitivity of the speach recognition model. 
 
 As you saw when doing the test recording from the mic its volume is quite low, so for your voice to be picked up from across the room you need to boost the volume. In my living room a value of 14 seems about right and lets me speak quite quietly across the room and still have the Marvin/Sheila picked up.
 
