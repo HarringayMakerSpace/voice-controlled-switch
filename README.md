@@ -36,6 +36,27 @@ All that done, connect the Pi to your PC with a USB cable, wait 90 seconds for i
 
 You can also copy files from you PC to the Pi Zero with: ```scp /path/to/file pi@raspberrypi.local:~```
 
+### Configure the SPH0645 I2S Microphone
+
+Edit the Pi's ```/boot/config.txt``` file to comment out the line ```dtparam=audio=on``` and to add the line ```dtoverlay=googlevoicehat-soundcard```. So the result looks like:
+```
+# Enable audio (loads snd_bcm2835)
+# dtparam=audio=on
+dtoverlay=googlevoicehat-soundcard
+```
+and then reboot the Pi with ```sudo reboot```
+
+Once rebooted ssh back in and verify that the mic is now available with the ```arecord -l``` command:
+```
+pi@raspberrypi:~ $ arecord -l
+**** List of CAPTURE Hardware Devices ****
+card 0: sndrpigooglevoi [snd_rpi_googlevoicehat_soundcar], device 0: Google voiceHAT SoundCard HiFi voicehat-hifi-0 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+```
+
+You should now be able to record audio with the mic. Enter the command ```arecord -D plughw:0 -c1 -r 16000 -f S16_LE -t wav -V mono -v file.wav```, near the mic say something or make some noise, and then hit ctrl-c to stop the recording. Now transfer the recording to your PC so you can play it to confirm it is capturing sound - from the PC enter ```scp  pi@raspberrypi.local:file.wav .``` and now play the file, for example, on a Mac ```play file.wav```. You should hear the sounds you made when recording, it may be quite quiet but thats ok.
+
 <img src="images/fritzing.png" alt="Fritzing Diagram" width="500">
 
 <img src="images/pizerospeach2.jpg" alt="Pi Zero inside 1" width="500">
