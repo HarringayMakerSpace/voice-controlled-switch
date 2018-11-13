@@ -80,6 +80,12 @@ So that this runs when the Pi Zero is booted edit the boot file ```xyz``` to inc
 ```
 ```
 
+There are two settings you can adjust to suit your environment. One is the volume level of the microphone and the other is the sensitivity of the speach recognition model. 
+
+As you saw when doing the test recording from the mic its volume is quite low, so for your voice to be picked up from across the room you need to boost the volume. In my living room a value of 14 seems about right and lets me speak quite quietly across the room and still have the Marvin/Sheila picked up.
+
+The sensitivity of the speech recognition adjusts how accurately it detects the hotwords. This ranges from 0.0 to 1.0 with a higher value meaning its more accurate. If you set this low then it will more often mis-trigger, especially from sounds from TV and music, setting it higher means you need to be more clearer speaking the Marvin/Sheila words.    
+
 ### Putting it all together
 
 The official Rasperry Pi Zero case includes a camera cover which has a hole in the front perfect for the microphone and it also has inside some raised tags which are pefectly spaced to tightly hold the microphone in place behind the hole. Inside the case there is also just enough space for the 433 MHz transmitter module. I've put a square of plastic insulator (cut from the bag the I2S mic came in) on the back of the transmitter to avoid any shorts if it touches the Pi circuit board, and held it on just with a blob of blutack. There is not a lot of spare space inside the Pi Zero case so I've connected the parts up with 32 AWG servo wire, which is a bit thinner and flexible compared to standard breadboard jumber cable.
