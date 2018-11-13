@@ -12,9 +12,9 @@ To control your lights in an ideal world you would say something obvious like "l
 
 One is "lights on" and "lights off" are very similar, both being mainly "lights o" and only differing by the end "n" and "ff", so using these gives annoying mis-detection errors.
 
-Better could be something like "lamp on" and "lights off" but the problem with that is that there are no recordings of people saying "lamp" and we need lots of recordings of actual speech to train the machine learning neural network with. Without thousands of samples to train the model it is unreliable and doesn't work very well with different peoples voices. So, to have something that actually works well I've used the keywords "Marvin" and "Sheila" to switch the lights on and off. There are sample recordings of thousands of people saying these (see [Google's Speech Commands Dataset](https://ai.googleblog.com/2017/08/launching-speech-commands-dataset.html)) so the trained model is accurate and the phrases are quite different which minimises mis-triggering.
+Better could be something like "lamp on" and "lights off" but the problem with that is that there are no recordings of people saying "lamp" and we need lots of recordings of actual speech to train the machine learning neural network with. Without thousands of samples to train the model it is unreliable and doesn't work very well with different peoples voices. So, to have something that actually works well this uses the keywords "Marvin" and "Sheila" to switch the lights on and off. There are sample recordings of thousands of people saying these (see [Google's Speech Commands Dataset](https://ai.googleblog.com/2017/08/launching-speech-commands-dataset.html)) so the trained model is accurate and the phrases are quite different which minimises mis-triggering.
 
-You'll think it sounds odd saying Marvin and Sheila to control your lights, but it doesn't have all the "hey google" cruft or violate your privacy while bringing the benefits of voice control so you quickly get used to it.
+You'll probably think its odd saying Marvin and Sheila to control your lights, but it doesn't have all the "hey google" cruft or privacy violoations, so you quickly get used to and even prefer it.
 
 ## What you need:
 
@@ -65,16 +65,26 @@ card 0: sndrpigooglevoi [snd_rpi_googlevoicehat_soundcar], device 0: Google voic
   Subdevice #0: subdevice #0
 ```
 
-You should now be able to record audio with the mic. Enter the command ```arecord -D plughw:0 -c1 -r 16000 -f S16_LE -t wav -V mono -v file.wav```, near the mic say something or make some noise, and then hit ctrl-c to stop the recording. Now transfer the recording to your PC so you can play it to confirm it is capturing sound - from the PC enter ```scp  pi@raspberrypi.local:file.wav .``` and now play the file, for example, on a Mac ```play file.wav```. You should hear the sounds you made when recording, it may be quite quiet but thats ok.
+You should now be able to record audio with the mic. To test that enter the command ```arecord -D plughw:0 -c1 -r 16000 -f S16_LE -t wav -V mono -v file.wav```, near the mic say something or make some noise, and then hit ctrl-c to stop the recording. Now transfer the recording to your PC so you can play it to confirm it is capturing sound - from the PC enter ```scp  pi@raspberrypi.local:file.wav .``` and now play the file, for example, on a Mac ```play file.wav```. You should hear the sounds you made when recording, it may be quite quiet but thats ok.
 
 ### The code
 
 The code is a Python script which uses the [Nyumaya Audio Recognition](https://github.com/nyumaya/nyumaya_audio_recognition) project to do the speech recognition and [rpi-rf](https://github.com/milaq/rpi-rf) for the remote control mains switch. 
 
-There are a few options for doing speech recognition on a Pi Zero. One is [Snowboy](https://snowboy.kitt.ai/) which has some nice features but it doesn't seem as accurate as Nyumaya. Another is [Porcupine](https://github.com/Picovoice/Porcupine) which is able to create models from English text so doesn't need all the audio samples, however its aimed at comercial customers and without a license you can't create custom models for the Pi and he wouldn't give me a personal license even when offering to pay. Finaly there is the completely DIY approach which is where I started - Google's open source machine learning project TensorFlow has a [speech recognition example](https://www.tensorflow.org/tutorials/sequences/audio_recognition) which is based on the research paper [Convolutional Neural Networks for Small-footprint Keyword Spotting](https://www.isca-speech.org/archive/interspeech_2015/papers/i15_1478.pdf). That is improved on by a later paper at the end of 2017, [Honk: A PyTorch Reimplementation of Convolutional
-Neural Networks for Keyword Spoting](https://arxiv.org/pdf/1710.06554.pdf) with an associated open source project, [Honk](https://github.com/castorini/honk). I found the code in Honk hard to make sense of and then I came across Nyumaya which I understand is based on the Honk model and its much easier to use. Nyumaya unfortunately hasn't open sourced the model generation code yet, but the guy behind the Nyumaya is incredibly responsive and helpful so thats what this is using presently.     
+There are a few options for doing speech recognition on a Pi Zero. One is [Snowboy](https://snowboy.kitt.ai/) which has some nice features but it doesn't seem as accurate as Nyumaya. Another is [Porcupine](https://github.com/Picovoice/Porcupine) which is able to create models from English text so doesn't need all the audio samples, however its aimed at comercial customers and without a license you can't create custom models for the Pi and he wouldn't give me a personal license even when offering to pay. Finally, there is the completely DIY approach which is where I started - Google's open source machine learning project TensorFlow has a [speech recognition example](https://www.tensorflow.org/tutorials/sequences/audio_recognition) which is based on the research paper [Convolutional Neural Networks for Small-footprint Keyword Spotting](https://www.isca-speech.org/archive/interspeech_2015/papers/i15_1478.pdf). That is improved on by a later paper at the end of 2017, [Honk: A PyTorch Reimplementation of Convolutional
+Neural Networks for Keyword Spoting](https://arxiv.org/pdf/1710.06554.pdf) with an associated open source project, [Honk](https://github.com/castorini/honk). I found the code in Honk hard to make sense of and then I came across Nyumaya which I understand is based on the Honk model with some further improvements and its much easier to use. Nyumaya unfortunately hasn't open sourced the model generation code yet, but the guy behind Nyumaya is incredibly responsive and helpful so thats what this is using presently.     
 
-Anyway, clone or download a zip of this repo to you PC and then copy it to the Pi Zero with ```scp -r /path/to/file pi@raspberrypi.local:~/pi-voice-switch```
+Anyway, clone or download a zip of this repo to you PC and then copy it to the Pi Zero with ```scp -r path/to/voice-controlled-switch/ pi@raspberrypi.local:~/pi-voice-switch/```
+
+So that this runs when the Pi Zero is booted edit the boot file ```xyz``` to include the line ```abc```. It should look like this:
+```
+```
+
+There are two settings you can adjust to suit your environment. One is the volume level of the microphone and the other is the sensitivity of the speach recognition model. 
+
+As you saw when doing the test recording from the mic its volume is quite low, so for your voice to be picked up from across the room you need to boost the volume. In my living room a value of 14 seems about right and lets me speak quite quietly across the room and still have the Marvin/Sheila picked up.
+
+The sensitivity of the speech recognition adjusts how accurately it detects the hotwords. This ranges from 0.0 to 1.0 with a higher value meaning its more accurate. If you set this low then it will more often mis-trigger, especially from sounds from TV and music, setting it higher means you need to be more clearer speaking the Marvin/Sheila words.    
 
 ### Putting it all together
 
