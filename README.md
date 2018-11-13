@@ -74,7 +74,11 @@ The code is a Python script which uses the [Nyumaya Audio Recognition](https://g
 There are a few options for doing speech recognition on a Pi Zero. One is [Snowboy](https://snowboy.kitt.ai/) which has some nice features but it doesn't seem as accurate as Nyumaya. Another is [Porcupine](https://github.com/Picovoice/Porcupine) which is able to create models from English text so doesn't need all the audio samples, however its aimed at comercial customers and without a license you can't create custom models for the Pi and he wouldn't give me a personal license even when offering to pay. Finaly there is the completely DIY approach which is where I started - Google's open source machine learning project TensorFlow has a [speech recognition example](https://www.tensorflow.org/tutorials/sequences/audio_recognition) which is based on the research paper [Convolutional Neural Networks for Small-footprint Keyword Spotting](https://www.isca-speech.org/archive/interspeech_2015/papers/i15_1478.pdf). That is improved on by a later paper at the end of 2017, [Honk: A PyTorch Reimplementation of Convolutional
 Neural Networks for Keyword Spoting](https://arxiv.org/pdf/1710.06554.pdf) with an associated open source project, [Honk](https://github.com/castorini/honk). I found the code in Honk hard to make sense of and then I came across Nyumaya which I understand is based on the Honk model and its much easier to use. Nyumaya unfortunately hasn't open sourced the model generation code yet, but the guy behind the Nyumaya is incredibly responsive and helpful so thats what this is using presently.     
 
-Anyway, clone or download a zip of this repo to you PC and then copy it to the Pi Zero with ```scp -r /path/to/file pi@raspberrypi.local:~/pi-voice-switch```
+Anyway, clone or download a zip of this repo to you PC and then copy it to the Pi Zero with ```scp -r path/to/voice-controlled-switch/ pi@raspberrypi.local:~/pi-voice-switch/```
+
+So that this runs when the Pi Zero is booted edit the boot file ```xyz``` to include the line ```abc```. It should look like this:
+```
+```
 
 ### Putting it all together
 
