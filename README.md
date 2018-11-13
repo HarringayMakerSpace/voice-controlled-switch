@@ -46,7 +46,7 @@ Along with logging on with SSH you can also copy files from your PC to the Pi Ze
 
 <img src="images/fritzing.png" alt="Fritzing Diagram" width="500">
 
-### Configure the SPH0645 I2S Microphone
+### Configure Raspbian for the I2S Microphone
 
 Raspbian Stretch doesn't come with default support for the SPH0645 I2S microphone so you need to tweak the config for it. Edit the Pi's ```/boot/config.txt``` file to comment out the line ```dtparam=audio=on``` and to add the line ```dtoverlay=googlevoicehat-soundcard```. So the result looks like:
 ```
