@@ -9,9 +9,9 @@ from subprocess import call
 from multi_detector import MultiDetector
 from record import AudiostreamSource
 	
-lib = "lib/libnyumaya.so"
-hotword_graph="marvin_sheila_small.tflite"
-hotword_labels="marvin_sheila_labels.txt"
+lib = "/home/pi/voice-controlled-switch/lib/libnyumaya.so"
+hotword_graph="/home/pi/voice-controlled-switch/marvin_sheila_small.tflite"
+hotword_labels="/home/pi/voice-controlled-switch/marvin_sheila_labels.txt"
 
 def light_on():
 	call("sudo ifconfig wlan0 hw ether 36:01:22:33:44:01", shell=True)
