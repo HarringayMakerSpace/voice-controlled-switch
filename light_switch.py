@@ -14,13 +14,13 @@ hotword_graph="marvin_sheila_small.tflite"
 hotword_labels="marvin_sheila_labels.txt"
 
 def light_on():
-        call("sudo ifconfig wlan0 hw ether 36:01:22:33:44:01", shell=True)
-        call("sudo iwlist wlan0 scan", shell=True)
+	call("sudo ifconfig wlan0 hw ether 36:01:22:33:44:01", shell=True)
+	call("sudo iwlist wlan0 scan", shell=True)
 	print("Turning light on")
 
 def light_off():
-        call("sudo ifconfig wlan0 hw ether 36:01:22:33:44:02", shell=True)
-        call("sudo iwlist wlan0 scan", shell=True)
+	call("sudo ifconfig wlan0 hw ether 36:01:22:33:44:02", shell=True)
+	call("sudo iwlist wlan0 scan", shell=True)
 	print("Turning light off")
 
 def label_stream():
