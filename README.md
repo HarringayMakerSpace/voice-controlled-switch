@@ -25,6 +25,8 @@ You'll probably think its odd saying Marvin and Sheila to control your lights, b
 - 433MHz remote control mains socket
 - Pi Zero case to make it look nice
 
+(Note: I've also made this with the Wifi version of the Pi Zero controlling Sonoff mains switches. This costs slightly more but its a little simpler as you don't need to wire up the 433MHz transmitter. Code for this is [here](https://github.com/HarringayMakerSpace/sonoff-adhoc).)
+
 ## Steps:
 
 ### Setup the Raspberry Pi Zero
