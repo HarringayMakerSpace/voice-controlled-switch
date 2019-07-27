@@ -37,6 +37,7 @@ Using the non-Wifi version of the Pi Zero its easiest to set it up for access fr
 **2.** Once Raspbian is flashed, open up the boot partition (in Windows Explorer, Finder etc) and add to the bottom of the ```config.txt``` file ```dtoverlay=dwc2``` on a new line, then save the file.    
 **3.** Create a new empty file simply called ```ssh``` in the SD card.    
 **4.** Edit the ```cmdline.txt``` file and insert ```modules-load=dwc2,g_ether``` after ```rootwait```.
+**5.** (Windows only) Install Bonjour so the Pi is discovered: https://support.apple.com/kb/DL999?locale=en_GB
 
 (See [this guide](https://gist.github.com/gbaman/975e2db164b3ca2b51ae11e45e8fd40a) for full details.) 
 
